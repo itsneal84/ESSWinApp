@@ -39,15 +39,15 @@ namespace ESSWinApp.Views
         private async void LoadUnknownFaces()
         {
             var unknownFaces = await DataProcessor.LoadUnknownFaces();
-
-            
-
+                      
             if (unknownFaces.UnknownFaces != null)
             {
                 foreach (var item in unknownFaces.UnknownFaces)
                 {
                     ListView UFListView = new ListView();
                     UFListView.Background = new SolidColorBrush(Color.FromArgb(20,148,193,32));
+                    UFListView.IsItemClickEnabled = true;
+                    UFListView.ItemClick += UFListView_ItemClick; 
 
                     UFListView.Items.Add("Name: " + item.Name);
                     UFListView.Items.Add("File Name: " + item.FileName);
@@ -56,6 +56,22 @@ namespace ESSWinApp.Views
 
                     UnknownListView.Items.Add(UFListView);
                 }
+                info_lbl.Text = "Select file name to edit details";
+            }
+            else
+            {
+                UnknownListView.Items.Add("No Data Available");
+            }
+        }
+
+        private void UFListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clickedValue = e.ClickedItem.ToString();
+
+            if (clickedValue.Contains("File Name"))
+            {
+                clickedValue = clickedValue.Substring(clickedValue.IndexOf(":") + 2);
+                this.Frame.Navigate(typeof(ImageDetailsView), clickedValue);
             }
         }
     }

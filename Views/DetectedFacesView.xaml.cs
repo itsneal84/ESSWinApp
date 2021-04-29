@@ -52,6 +52,8 @@ namespace ESSWinApp.Views
                 {
                     ListView FListView = new ListView();
                     FListView.Background = new SolidColorBrush(Color.FromArgb(20,47,172,102));
+                    //FListView.IsItemClickEnabled = true;
+                    //FListView.ItemClick += FListView_ItemClick;
 
                     FListView.Items.Add("Name: " + detected.Name);
                     FListView.Items.Add("File Name: " + detected.FileName);
@@ -60,6 +62,21 @@ namespace ESSWinApp.Views
 
                     FaceListView.Items.Add(FListView);
                 }
+            }
+            else
+            {
+                FaceListView.Items.Add("No Data Availabe");
+            }
+        }
+
+        private void FListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var clickedValue = e.ClickedItem.ToString();
+
+            if (clickedValue.Contains("File Name"))
+            {
+                clickedValue = clickedValue.Substring(clickedValue.IndexOf(":") + 2);
+                this.Frame.Navigate(typeof(ImageDetailsView), clickedValue);
             }
         }
     }

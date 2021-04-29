@@ -20,6 +20,10 @@ namespace ESSWinApp.Views
         public Home()
         {
             this.InitializeComponent();
+
+            start_btn.Visibility = Visibility.Collapsed;
+            add_btn.Visibility = Visibility.Collapsed;
+            process_lbl.Visibility = Visibility.Collapsed;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -61,7 +65,7 @@ namespace ESSWinApp.Views
             {
                 count = await DataProcessor.LoadDataCount();
                 
-                if (count != null)
+                if (count != "")
                 {
                     data_count_lbl.Text = count;
                     return count;
@@ -87,7 +91,7 @@ namespace ESSWinApp.Views
             if (UserModel.Connected == true)
             {
                 count = await DataProcessor.LoadFaceCount();
-                if(count != null)
+                if(count != "")
                 {
                     face_count_lbl.Text = count;
                     return count;
@@ -115,7 +119,7 @@ namespace ESSWinApp.Views
             {
                 count = await DataProcessor.LoadUnknownFaceCount();
 
-                if (count != null)
+                if (count != "")
                 {
                     unknown_count_lbl.Text = count;
                     return count;
@@ -142,7 +146,7 @@ namespace ESSWinApp.Views
             {
                 count = await DataProcessor.LoadMotionDetectionCount();
 
-                if(count != null)
+                if(count != "")
                 {
                     motion_count_lbl.Text = count;
                     return count;
@@ -173,14 +177,14 @@ namespace ESSWinApp.Views
                     foreach (var device in devices.Devices)
                     {
                         TextBlock deviceName = new TextBlock();
-                        deviceName.FontSize = 30;
+                        deviceName.FontSize = 18;
                         deviceName.Foreground = new SolidColorBrush(Colors.White);
                         deviceName.FontWeight = FontWeights.Bold;
                         deviceName.TextWrapping = TextWrapping.Wrap;
                         deviceName.TextAlignment = TextAlignment.Center;
 
                         TextBlock deviceIp = new TextBlock();
-                        deviceIp.FontSize = 30;
+                        deviceIp.FontSize = 18;
                         deviceIp.Foreground = new SolidColorBrush(Colors.White);
                         deviceIp.FontWeight = FontWeights.Bold;
                         deviceIp.TextAlignment = TextAlignment.Center;
@@ -192,6 +196,10 @@ namespace ESSWinApp.Views
                         DevicesList.Items.Add(deviceIp);
                         DevicesList.Items.Add("");
                     }
+
+                    start_btn.Visibility = Visibility.Visible;
+                    add_btn.Visibility = Visibility.Visible;
+                    process_lbl.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -207,6 +215,18 @@ namespace ESSWinApp.Views
                     DevicesList.Items.Add(deviceName);
                 }
             }
+        }
+
+        private async void start_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string processMsg = await DataProcessor.StartDevices();
+
+            process_lbl.Text = processMsg;
+        }
+
+        private void add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddDeviceView));
         }
     }
 }

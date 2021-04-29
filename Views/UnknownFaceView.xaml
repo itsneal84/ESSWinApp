@@ -10,5 +10,6 @@
 
     <Grid>
         <controls:AdaptiveGridView Name="UnknownListView" DesiredWidth="250" Grid.Row="1" Margin="30,30,30,30" />
+        <TextBlock x:Name="info_lbl" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10,10,10"/>
     </Grid>
 </Page>

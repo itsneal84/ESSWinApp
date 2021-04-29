@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using Windows.UI.Xaml.Controls;
 using ESSWinApp.Core.Processor;
+using Windows.UI.Xaml.Navigation;
 
 namespace ESSWinApp.Views
 {
@@ -10,6 +11,12 @@ namespace ESSWinApp.Views
         public NewData()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
             LoadData();
         }
 

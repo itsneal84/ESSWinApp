@@ -19,7 +19,7 @@
         SelectedItem="{x:Bind Selected, Mode=OneWay}"
         ItemInvoked="OnItemInvoked"
         IsSettingsVisible="False"
-        Background="{ThemeResource SystemControlBackgroundAltHighBrush}" PaneDisplayMode="LeftCompact">
+        Background="#7F1D70B8" PaneDisplayMode="LeftCompact">
         <winui:NavigationView.MenuItems>
             <!--
             TODO WTS: Change the symbols for each item as appropriate for your app
@@ -28,12 +28,12 @@
             View the symbols at https://docs.microsoft.com/en-gb/uwp/api/windows.ui.xaml.controls.symbol?view=winrt-19041
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-            <winui:NavigationViewItem x:Uid="Shell_Login" Icon="Contact" helpers:NavHelper.NavigateTo="views:Login" />
-            <winui:NavigationViewItem x:Uid="Shell_Home" Icon="Home" helpers:NavHelper.NavigateTo="views:Home" />
-            <winui:NavigationViewItem x:Uid="Shell_NewData" Icon="ReportHacked" helpers:NavHelper.NavigateTo="views:NewData" />
-            <winui:NavigationViewItem x:Uid="Shell_DetectedFacesView" Icon="WebCam" helpers:NavHelper.NavigateTo="views:DetectedFacesView" />
-            <winui:NavigationViewItem x:Uid="Shell_UnknownFaceViews" Icon="BlockContact" helpers:NavHelper.NavigateTo="views:UnknownFaceView" />
-            <winui:NavigationViewItem x:Uid="Shell_MotionDetection" Icon="Remote" helpers:NavHelper.NavigateTo="views:MotionDetection" />
+            <winui:NavigationViewItem x:Uid="Shell_Login" Icon="Contact" helpers:NavHelper.NavigateTo="views:Login" Content="Login"/>
+            <winui:NavigationViewItem x:Uid="Shell_Home" Icon="Home" helpers:NavHelper.NavigateTo="views:Home" Content="Home"/>
+            <winui:NavigationViewItem x:Uid="Shell_NewData" Icon="ReportHacked" helpers:NavHelper.NavigateTo="views:NewData" Content="New Data"/>
+            <winui:NavigationViewItem x:Uid="Shell_DetectedFacesView" Icon="WebCam" helpers:NavHelper.NavigateTo="views:DetectedFacesView" Content="Detected Faces"/>
+            <winui:NavigationViewItem x:Uid="Shell_UnknownFaceViews" Icon="BlockContact" helpers:NavHelper.NavigateTo="views:UnknownFaceView" Content="Unknown Face"/>
+            <winui:NavigationViewItem x:Uid="Shell_MotionDetection" Icon="Remote" helpers:NavHelper.NavigateTo="views:MotionDetection" Content="Motion Detection"/>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
@@ -41,7 +41,7 @@
                 <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock Text="{Binding}" Style="{ThemeResource TitleTextBlockStyle}" />
+                            <TextBlock Text="{Binding}" Style="{ThemeResource TitleTextBlockStyle}" VerticalAlignment="Center" FocusVisualPrimaryBrush="#FF29313A" />
                         </Grid>
                     </DataTemplate>
                 </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>

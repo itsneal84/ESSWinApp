@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="ESSWinApp.Views.ImageDetailsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ESSWinApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="1" Text="Name: " TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+            <TextBox x:Name="name_lbl" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22" TextChanged="Name_lbl_OnTextChanged"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" Text="File Name: " TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+            <TextBlock x:Name="filename_lbl" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="3" Text="Date Detected: " TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+            <TextBlock x:Name="date_detected_lbl" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="4" Text="Time Detected: " TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22" FontWeight="Bold"/>
+            <TextBlock x:Name="time_detected_lbl"  Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="22"/>
+            <Button x:Name="save_btn" Content="Save" Grid.Column="1" Margin="50,10,0,0" Grid.Row="5" HorizontalAlignment="left" VerticalAlignment="Top" FontSize="18" Click="save_btn_Click"/>
+            <TextBlock x:Name="msg_lbl" Grid.Column="1" Margin="0,50,0,0" Grid.Row="5" HorizontalAlignment="left" VerticalAlignment="Top" FontSize="18" />
+        </Grid>
+        <Image x:Name="image_view" HorizontalAlignment="Left" Height="auto" Width="auto" Margin="10,10,10,10" VerticalAlignment="Top" />
+    </Grid>
+</Page>

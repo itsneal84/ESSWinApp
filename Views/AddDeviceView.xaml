@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="ESSWinApp.Views.AddDeviceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ESSWinApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.6*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Device Name:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold"/>
+            <TextBox x:Name="device_name_txt" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" FontSize="22"/>
+            <TextBlock Grid.Row="1" Text="Device IP:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold"/>
+            <TextBox x:Name="device_ip_txt" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" FontSize="22"/>
+            <TextBlock Grid.Row="2" Text="Device Type:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold"/>
+            <TextBox x:Name="device_type_txt" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" FontSize="22"/>
+            <TextBlock Grid.Row="3" Text="Stream Link:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold"/>
+            <TextBox x:Name="stream_link_txt" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" TextWrapping="Wrap" FontSize="22"/>
+            <TextBlock Grid.Row="4" Text="Face Detection:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold"/>
+            <RadioButton x:Name="face_rdo" Grid.Column="1" Grid.Row="4" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="5" Text="Motion Detection:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" FontSize="22" FontWeight="Bold"/>
+            <RadioButton x:Name="motion_rdo" Grid.Column="1" Grid.Row="5" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Column="1" Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="save_btn" Content="Save" Grid.Column="1" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Save_btn_OnClick"/>
+            <TextBlock x:Name="message_lbl" Grid.ColumnSpan="2" Margin="0,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        </Grid>
+
+    </Grid>
+</Page>
